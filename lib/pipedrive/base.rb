@@ -49,7 +49,7 @@ module Pipedrive
 
     def failed_response(res)
       failed_res = res.body.merge(success: false, not_authorized: false,
-                                  failed: false)
+                                  failed: false, status_code: res.status)
       case res.status
       when 401
         failed_res.merge! not_authorized: true

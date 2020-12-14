@@ -28,7 +28,8 @@ RSpec.describe ::Pipedrive::Base do
       it { is_expected.to eq(::Hashie::Mash.new({
                                                   failed:         false,
                                                   not_authorized: true,
-                                                  success:        false
+                                                  success:        false,
+                                                  status_code: 401
                                                 })) }
     end
     context 'status is 420' do
@@ -36,7 +37,8 @@ RSpec.describe ::Pipedrive::Base do
       it { is_expected.to eq(::Hashie::Mash.new({
                                                   failed:         true,
                                                   not_authorized: false,
-                                                  success:        false
+                                                  success:        false,
+                                                  status_code: 420
                                                 })) }
     end
     context 'status is 400' do
@@ -44,7 +46,8 @@ RSpec.describe ::Pipedrive::Base do
       it { is_expected.to eq(::Hashie::Mash.new({
                                                   failed:         false,
                                                   not_authorized: false,
-                                                  success:        false
+                                                  success:        false,
+                                                  status_code: 400
                                                 })) }
     end
   end
